@@ -21,19 +21,22 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     inkscape \
     latexmk \
     make \
+    nodejs \
     perl \
     ruby \
     ruby-nokogiri \
     texinfo \
     texlive-fonts-extra \
     texlive-fonts-recommended \
+    texlive-lang-other \
     texlive-latex-extra \
     texlive-latex-recommended \
     texlive-plain-generic \
     texlive-xetex \
     xz-utils \
     zip \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && ln -sf /usr/share/texinfo /usr/local/share/texinfo
 
 # Install Inconsolata LGC (OpenType) so fontspec can find it by name.
 RUN curl -fsSL \
